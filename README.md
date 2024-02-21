@@ -1,6 +1,10 @@
 # fluxCD
 This is a demonstration of GitOps on kubernetes cluster using Flux
 
+## 1. Prerequisites
+* [aws-access-key](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
+* [kubectl](https://kubernetes.io/docs/tasks/tools/)
+* [flux](https://fluxcd.io/flux/installation/)
 ### 1. Manager repo
 
 ```
