@@ -35,26 +35,26 @@ kubectl get nodes
 
 Configure environment variable:
 ```
-export $GITHUB_TOKEN=
+export GITHUB_TOKEN=
 ```
 
 ```
-export $GITHUB_USER=
+export GITHUB_USER=
 ```
 eg: manager-flux
 
 ```
-export $GITHUB_REPO=
+export GITHUB_REPO=
 ```
 
 eg: main
 ```
-export $BRANCH=
+export BRANCH=
 ```
 
 eg: ./clusters/dev
 ```
-export $PATH=
+export PATH=
 ```
 
 ```

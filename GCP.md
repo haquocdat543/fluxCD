@@ -1,5 +1,5 @@
 # fluxCD
-This is a demonstration of GitOps on kubernetes cluster using Flux
+This is a demonstration of GitOps on kubernetes cluster using Flux with GCP
 
 ## 1. Prerequisites
 * [gcp-account](https://console.cloud.google.com/welcome/new)
@@ -11,6 +11,15 @@ This is a demonstration of GitOps on kubernetes cluster using Flux
 ## 2. Let's start
 
 ### 1. Initialize cluster
+List projects:
+```
+gcloud projects list
+```
+
+Configure environment variable:
+```
+export TF_VAT_projectId=
+```
 
 ```
 terraform init
@@ -37,26 +46,26 @@ kubectl get nodes
 
 Configure environment variable:
 ```
-export $GITHUB_TOKEN=
+export GITHUB_TOKEN=
 ```
 
 ```
-export $GITHUB_USER=
+export GITHUB_USER=
 ```
 eg: manager-flux
 
 ```
-export $GITHUB_REPO=
+export GITHUB_REPO=
 ```
 
 eg: main
 ```
-export $BRANCH=
+export BRANCH=
 ```
 
 eg: ./clusters/dev
 ```
-export $PATH=
+export PATH=
 ```
 
 ```
