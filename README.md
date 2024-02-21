@@ -3,6 +3,7 @@ This is a demonstration of GitOps on kubernetes cluster using Flux
 
 ## 1. Prerequisites
 * [aws-access-key](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
+* [github-access-token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 * [kubectl](https://kubernetes.io/docs/tasks/tools/)
 * [flux](https://fluxcd.io/flux/installation/)
 ## 2. Let's start
@@ -28,6 +29,9 @@ Test cluster:
 ```
 kubectl get nodes
 ```
+
+### 3. Bootstrap flux
+
 
 ### 1. Manager repo
 
