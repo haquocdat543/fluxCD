@@ -12,6 +12,22 @@ This is a demonstration of GitOps on kubernetes cluster using Flux
 ```
 aws cloudformation deploy --stack-name flux --template-file ./cloudformation-resources/k8s.yaml --capabilities CAPABILITY_IAM
 ```
+### 2. get kubeconfig
+
+List clusters:
+```
+aws eks list-clusters
+```
+
+Get kubeconfig file:
+```
+aws eks update-kubeconfig --name EKSCluster
+```
+
+Test cluster:
+```
+kubectl get nodes
+```
 
 ### 1. Manager repo
 
