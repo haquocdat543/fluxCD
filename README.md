@@ -5,6 +5,14 @@ This is a demonstration of GitOps on kubernetes cluster using Flux
 * [aws-access-key](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
 * [kubectl](https://kubernetes.io/docs/tasks/tools/)
 * [flux](https://fluxcd.io/flux/installation/)
+## 2. Let's start
+
+### 1. Initialize cluster
+
+```
+aws cloudformation deploy --stack-name flux --template-file ./cloudformation-resources/k8s.yaml --capabilities CAPABILITY_IAM
+```
+
 ### 1. Manager repo
 
 ```
@@ -27,5 +35,11 @@ This is a demonstration of GitOps on kubernetes cluster using Flux
 ```
 * deployment.yaml
 * kustomization.yaml
+```
+
+### 6. Destroy cluster
+
+```
+aws cloudformation delete-stack --stack-name flux
 ```
 
