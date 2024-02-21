@@ -32,8 +32,35 @@ kubectl get nodes
 
 ### 3. Bootstrap flux
 
+Configure environment variable:
+```
+export $GITHUB_TOKEN=
+```
 
-### 1. Manager repo
+```
+export $GITHUB_USER=
+```
+eg: manager-flux
+
+```
+export $GITHUB_REPO=
+```
+
+eg: main
+```
+export $BRANCH=
+```
+
+eg: ./clusters/dev
+```
+export $PATH=
+```
+
+```
+flux bootstrap github --owner $GITHUB_USER --repository $GITHUB_REPO --branch $BRANCH --path $PATH --personal
+```
+
+### 2. Manager repo
 
 ```
 * ./clusters
