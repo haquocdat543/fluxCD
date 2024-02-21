@@ -1,14 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: nginx-deployment
   labels:
     app: nginx
 spec:
-  revisionHistoryLimit: 1
-  strategy: # change here
-    type: RollingUpdate # you can choose Recreate instead of RollingUpdate
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: nginx
@@ -19,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nginx
-	image: nginx:latest
+        image: nginx:1.14.2
         ports:
         - containerPort: 80
