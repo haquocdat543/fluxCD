@@ -141,9 +141,33 @@ git add -A && git commit -m "Add nginx Kustomization`
 git push
 ```
 
-### 6. Destroy cluster
+### 6. Check 
+View kustomization resources:
+```
+flux get kustomizations --watch
+```
+
+View deployment resources:
+```
+kubectl -n default get deployments
+```
+
+Update `worker repo`:
+* Eg: replica 
+* Commit > push
+
+View kustomization resources again:
+```
+flux get kustomizations --watch
+```
+
+View deployment resources again:
+```
+kubectl -n default get deployments
+```
+
+### 7. Destroy cluster
 
 ```
 aws cloudformation delete-stack --stack-name flux
 ```
-
