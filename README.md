@@ -70,8 +70,9 @@ Create github repo with the name `worker-flux` with content in `k8s-resources` f
 ```
 You can replace it with your desire resources
 
-### 2. Manager repo
+### 5. Manager repo
 
+Example structure:
 ```
 * ./clusters
   * staging
@@ -79,14 +80,67 @@ You can replace it with your desire resources
       * gotk-components.yaml
       * gotk-sync.yaml
       * kustomization.yaml
-    * podinfor-source.yaml
-    * podinfor-kustomization.yaml
+    * nginx-source.yaml
+    * nginx-kustomization.yaml
   * production
     * flux-system
       * gotk-components.yaml
       * gotk-sync.yaml
       * kustomization.yaml
 ```
+Clone `manager repo`
+```
+git clone git@github.com:$GITHUB_USER/$GITHUB_REPO.git $HOME/$GITHUB_REPO
+cd $HOME/$GITHUB_REPO
+```
+
+Create resources that point to `worker repo`
+```	
+cat << EOF | sudo tee -a $PATH/ngin-source.yaml
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: nginx
+  namespace: flux-system
+spec:
+  interval: 1m
+  ref:
+    branch: $BRANCH
+  url: https://github.com/$GITHUB_USER/worker-flux
+EOF
+```
+
+```
+git add -A && git commit -m "Add nginx GitRepository"
+git push
+```
+
+Create resources that point to `gitrepo` was created:
+```	
+cat << EOF | sudo tee -a $PATH/ngin-kustomization.yaml
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: nginx
+  namespace: flux-system
+spec:
+  interval: 30m0s
+  path: ./
+  prune: true
+  retryInterval: 2m0s
+  sourceRef:
+    kind: GitRepository
+    name: nginx
+  targetNamespace: default
+  timeout: 3m0s
+  wait: true
+```
+
+```
+git add -A && git commit -m "Add nginx Kustomization`
+git push
+```
+
 ### 6. Destroy cluster
 
 ```
