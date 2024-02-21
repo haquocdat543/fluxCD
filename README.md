@@ -18,3 +18,10 @@ This is a demonstration of GitOps on kubernetes cluster using Flux
       * gotk-sync.yaml
       * kustomization.yaml
 ```
+### 2. Worker repo
+
+```
+* deployment.yaml
+* kustomization.yaml
+```
+
