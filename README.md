@@ -60,6 +60,16 @@ export $PATH=
 flux bootstrap github --owner $GITHUB_USER --repository $GITHUB_REPO --branch $BRANCH --path $PATH --personal
 ```
 
+### 4. Worker repo
+
+Create github repo with the name `worker-flux` with content in `k8s-resources` folder
+
+```
+* deployment.yaml
+* kustomization.yaml
+```
+You can replace it with your desire resources
+
 ### 2. Manager repo
 
 ```
@@ -77,13 +87,6 @@ flux bootstrap github --owner $GITHUB_USER --repository $GITHUB_REPO --branch $B
       * gotk-sync.yaml
       * kustomization.yaml
 ```
-### 2. Worker repo
-
-```
-* deployment.yaml
-* kustomization.yaml
-```
-
 ### 6. Destroy cluster
 
 ```
