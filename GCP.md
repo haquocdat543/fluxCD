@@ -8,6 +8,7 @@ This is a demonstration of GitOps on kubernetes cluster using Flux with GCP
 * [github-access-token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 * [kubectl](https://kubernetes.io/docs/tasks/tools/)
 * [flux](https://fluxcd.io/flux/installation/)
+* [terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 ## 2. Let's start
 
 ### 1. Initialize cluster
