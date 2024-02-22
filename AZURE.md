@@ -1,29 +1,32 @@
 # fluxCD
-This is a demonstration of GitOps on kubernetes cluster using Flux with AWS. If you want GCP or Azure, please view [gcp](https://github.com/haquocdat543/fluxCD/blob/main/GCP.md), [Azure](https://github.com/haquocdat543/fluxCD/blob/main/AZURE.md) 
-
+This is a demonstration of GitOps on kubernetes cluster using Flux with GCP
 
 ## 1. Prerequisites
-* [aws-access-key](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html)
+* [gcp-account](https://console.cloud.google.com/welcome/new)
+* [gcloud](https://cloud.google.com/sdk/docs/install)
+* [google-cloud-cli-gke-gcloud-auth-plugin](https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke)
 * [github-access-token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 * [kubectl](https://kubernetes.io/docs/tasks/tools/)
 * [flux](https://fluxcd.io/flux/installation/)
+* [terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 ## 2. Let's start
 
 ### 1. Initialize cluster
 
 ```
-aws cloudformation deploy --stack-name flux --template-file ./cloudformation-resources/k8s.yaml --capabilities CAPABILITY_IAM
+terraform init
+terraform apply --auto-approve
 ```
 ### 2. get kubeconfig
 
 List clusters:
 ```
-aws eks list-clusters
+az aks list
 ```
 
 Get kubeconfig file:
 ```
-aws eks update-kubeconfig --name EKSCluster
+az aks get-credentials --name flux --resource-group flux-on-aks
 ```
 
 Test cluster:
@@ -170,5 +173,5 @@ kubectl -n default get deployments
 ### 7. Destroy cluster
 
 ```
-aws cloudformation delete-stack --stack-name flux
+terraform destroy --auto-approve
 ```
