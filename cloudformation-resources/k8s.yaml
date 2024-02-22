@@ -151,8 +151,8 @@ Resources:
       NodeRole: !GetAtt nodeGroup.Arn 
       ScalingConfig:
         MinSize: 1
-        DesiredSize: 5
-        MaxSize: 5
+        DesiredSize: 3
+        MaxSize: 3
       Labels:
         Key1: Value1
         Key2: Value2
